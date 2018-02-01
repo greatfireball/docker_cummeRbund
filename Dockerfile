@@ -12,7 +12,9 @@ RUN apt update && apt -y install \
     build-essential \
     git \
     software-properties-common \
-    python-software-properties
+    python-software-properties \
+    gnupg2 \
+    apt-transport-https
 
 # install GNU R
 RUN apt-key adv \
