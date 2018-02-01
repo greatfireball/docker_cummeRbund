@@ -34,6 +34,9 @@ RUN gpg \
 # install cummeRbund
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbund",suppressUpdates=T, ask=F, suppressAutoUpdate=T);'
 
+# install sqlite-3
+RUN apt install --yes sqlite
+
 VOLUME /data
 
 WORKDIR /data
