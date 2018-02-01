@@ -24,7 +24,12 @@ RUN gpg \
     add-apt-repository \
        'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' &&\
     apt update &&\
-    apt install --yes r-base
+    apt install --yes \
+       r-base \
+       libcurl4-openssl-dev \
+       libssl-dev \
+       libxml2-dev \
+       libmariadb-client-lgpl-dev
 
 VOLUME /data
 
