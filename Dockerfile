@@ -31,6 +31,9 @@ RUN gpg \
        libxml2-dev \
        libmariadb-client-lgpl-dev
 
+# install cummeRbund
+RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbund",suppressUpdates=T, ask=F, suppressAutoUpdate=T);'
+
 VOLUME /data
 
 WORKDIR /data
