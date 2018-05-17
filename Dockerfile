@@ -1,5 +1,4 @@
 ARG version=xenial
-
 FROM ubuntu:${version}
 
 LABEL maintainer="frank.foerster@ime.fraunhofer.de"
@@ -38,5 +37,4 @@ RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRb
 RUN apt install --yes sqlite
 
 VOLUME /data
-
 WORKDIR /data
