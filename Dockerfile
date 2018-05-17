@@ -1,8 +1,12 @@
 ARG version=xenial
 FROM ubuntu:${version}
 
-LABEL maintainer="frank.foerster@ime.fraunhofer.de"
-LABEL description="Dockerfile providing the cummeRbund software"
+LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
+      description="Dockerfile providing the cummeRbund software" \
+      version="$VERSION" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/greatfireball/docker_cummeRbund"
 
 RUN apt update && apt -y install \
     wget \
