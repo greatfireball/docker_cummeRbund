@@ -1,9 +1,12 @@
 ARG version=xenial
-
 FROM ubuntu:${version}
 
-LABEL maintainer="frank.foerster@ime.fraunhofer.de"
-LABEL description="Dockerfile providing the cummeRbund software"
+LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
+      description="Dockerfile providing the cummeRbund software" \
+      version="$VERSION" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/greatfireball/docker_cummeRbund"
 
 RUN apt update && apt -y install \
     wget \
@@ -34,6 +37,8 @@ RUN gpg \
 # install cummeRbund
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbund",suppressUpdates=T, ask=F, suppressAutoUpdate=T);'
 
-VOLUME /data
+# install sqlite-3
+RUN apt install --yes sqlite
 
+VOLUME /data
 WORKDIR /data
